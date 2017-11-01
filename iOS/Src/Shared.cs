@@ -53,6 +53,7 @@ public class LocationManager
             locMgr.AllowsBackgroundLocationUpdates = false;
         }
         LocationUpdated += LogLocation;
+        LocationUpdated += UpdateCurrentLocation;
     }
 
     public Location QueryLocation()
@@ -88,7 +89,6 @@ public class LocationManager
         {
             Latitude = location.Coordinate.Latitude,
             Longitude = location.Coordinate.Longitude,
-            Altitude = location.Altitude
         };
     }
 

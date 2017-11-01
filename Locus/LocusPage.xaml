@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Locus" x:Class="Locus.LocusPage">
-    <StackLayout VerticalOptions="Center">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
         <Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Button Text="ClickMe" Clicked="Handle_Clicked" />
+        <Button Text="Click To Update Location" Clicked="Handle_Clicked" />
+        <Label Text="Unknown" x:Name="CurrentLocation" />
     </StackLayout>
 </ContentPage>

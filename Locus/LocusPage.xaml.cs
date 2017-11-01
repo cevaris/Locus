@@ -14,6 +14,11 @@ namespace Locus
         void Handle_Clicked(object sender, System.EventArgs e)
         {
             Logger.Info(App.Shared.GetLocation());
+            if(App.Shared.GetLocation() != null){
+                CurrentLocation.Text = $"{App.Shared.GetLocation()}";    
+            } else {
+                CurrentLocation.Text = "Unknown";
+            }
         }
     }
 }
