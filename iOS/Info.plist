@@ -43,10 +43,13 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
-		<string>audio</string>
-		<string>bluetooth-central</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Used to remember your location. </string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>comgooglemaps</string>
+		<string></string>
+	</array>
 </dict>
 </plist>
