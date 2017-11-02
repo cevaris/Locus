@@ -9,3 +9,6 @@ Android
 
 iOS
 - https://developer.xamarin.com/guides/ios/application_fundamentals/backgrounding/ios_backgrounding_walkthroughs/location_walkthrough/
+
+Xamarin PCL Forms
+- https://developer.xamarin.com/samples/xamarin-forms/WorkingWithMaps/

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Locus.Views;assembly=Locus" x:Class="Locus.LocusPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Locus.Views;assembly=Locus" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" x:Class="Locus.LocusPage">
     <StackLayout>
         <Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
         <Button Text="Click To Update Location" Clicked="Handle_Clicked" />
         <Label Text="Unknown" x:Name="CurrentLocation" />
-        <local:MapView/>
+        <maps:Map WidthRequest="320" HeightRequest="200"
+            x:Name="MyMap"
+            IsShowingUser="true" 
+            MapType="Hybrid"
+        />
     </StackLayout>
 </ContentPage>

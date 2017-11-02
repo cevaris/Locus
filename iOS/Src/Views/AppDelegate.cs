@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
-using Google.Maps;
+//using Google.Maps;
 using UIKit;
-
 using Locus;
 
 namespace Locus.iOS
@@ -18,8 +17,9 @@ namespace Locus.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.FormsMaps.Init();
 
-            MapServices.ProvideAPIKey(Secrets.MapsApiKey);
+            //MapServices.ProvideAPIKey(Secrets.MapsApiKey);
 
             LoadApplication(new App());
 

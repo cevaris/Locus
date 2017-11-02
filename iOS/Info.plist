@@ -42,14 +42,18 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>audio</string>
 		<string>location</string>
+		<string>bluetooth-central</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Used to remember your location. </string>
+	<string>We are using your location</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>comgooglemaps</string>
 		<string></string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Can we use your location</string>
 </dict>
 </plist>
