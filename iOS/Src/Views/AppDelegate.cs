@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
-//using Google.Maps;
 using UIKit;
 using Locus;
 

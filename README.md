@@ -12,3 +12,6 @@ iOS
 
 Xamarin PCL Forms
 - https://developer.xamarin.com/samples/xamarin-forms/WorkingWithMaps/
+
+Get location 
+- https://jamesmontemagno.github.io/GeolocatorPlugin/CurrentLocation.html

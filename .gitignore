@@ -39,6 +39,6 @@ Thumbs.db
 # dotCover
 *.dotCover
 
-
+*secrets.xml
 *Secrets.cs
 *.db3
