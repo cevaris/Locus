@@ -9,6 +9,7 @@ namespace Locus.Geo
     {
         private readonly IGeolocator locator;
         private readonly TimeSpan timeout = TimeSpan.FromMilliseconds(2000);
+        private readonly static ILogger logger = new ConsoleLogger(nameof(GeoLocator));
 
         public GeoLocator()
         {
@@ -20,11 +21,10 @@ namespace Locus.Geo
             Task<Position> posTask = locator.GetPositionAsync(timeout);
             return posTask.ContinueWith(pos =>
             {
-                GeoLocation loc = new GeoLocation()
-                {
-                    Latitude = pos.Result.Latitude,
-                    Longitude = pos.Result.Longitude
-                };
+                GeoLocation loc = new GeoLocation(
+                    pos.Result.Latitude,
+                    pos.Result.Longitude
+                );
                 return loc;
             });
         }

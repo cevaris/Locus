@@ -45,6 +45,7 @@
     <Compile Include="Src\Secrets.cs" />
     <Compile Include="Src\Geo\GeoLocator.cs" />
     <Compile Include="Src\Geo\GeoLocation.cs" />
+    <Compile Include="Src\Geo\GeoTranslator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Src\" />

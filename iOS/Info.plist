@@ -44,7 +44,7 @@
 	<array>
 		<string>audio</string>
 		<string>location</string>
-		<string>bluetooth-central</string>
+		<string>bluetooth-peripheral</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We are using your location</string>
