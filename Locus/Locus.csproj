@@ -43,10 +43,13 @@
     <Compile Include="Src\ILogger.cs" />
     <Compile Include="Src\Views\MapView.cs" />
     <Compile Include="Src\Secrets.cs" />
+    <Compile Include="Src\Geo\GeoLocator.cs" />
+    <Compile Include="Src\Geo\GeoLocation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Src\" />
     <Folder Include="Src\Views\" />
+    <Folder Include="Src\Geo\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
