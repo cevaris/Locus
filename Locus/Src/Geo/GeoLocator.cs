@@ -7,6 +7,7 @@ namespace Locus.Geo
 {
     public class GeoLocator
     {
+        private static GeoLocator _instance;
         private readonly IGeolocator locator;
         private readonly TimeSpan timeout = TimeSpan.FromMilliseconds(2000);
         private readonly static ILogger logger = new ConsoleLogger(nameof(GeoLocator));
@@ -27,6 +28,18 @@ namespace Locus.Geo
                 );
                 return loc;
             });
+        }
+
+        public static GeoLocator Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new GeoLocator();
+                }
+                return _instance;
+            }
         }
     }
 }

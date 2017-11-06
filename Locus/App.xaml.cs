@@ -1,5 +1,7 @@
 ﻿using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Locus
 {
     public partial class App : Application

@@ -6,6 +6,7 @@ namespace Locus.Geo
 {
     public class GeoTranslator
     {
+        private static GeoTranslator _instance;
         private readonly Geocoder geocoder;
 
         public GeoTranslator()
@@ -17,6 +18,18 @@ namespace Locus.Geo
         {
             Position mapsPosition = location.MapsPosition();
             return geocoder.GetAddressesForPositionAsync(mapsPosition);
+        }
+
+        public static GeoTranslator Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new GeoTranslator();
+                }
+                return _instance;
+            }
         }
     }
 }

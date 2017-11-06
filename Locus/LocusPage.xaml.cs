@@ -15,10 +15,11 @@ namespace Locus
         {
             InitializeComponent();
 
-            locator = new GeoLocator();
-            translator = new GeoTranslator();
+            locator = GeoLocator.Instance;
+            translator = GeoTranslator.Instance;
 
             NavigateToMyLocation();
+            mapSlider.Value = 2;
         }
 
         async void NavigateToMyLocation()
@@ -29,26 +30,22 @@ namespace Locus
             logger.Info($"current location {geoLocation}");
 
             Position currentPosition = new Position(geoLocation.Latitude, geoLocation.Longitude);
-            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(currentPosition, Distance.FromMeters(1)));
+            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(currentPosition, Distance.FromMeters(100)));
 
             IEnumerable<string> address = await translator.GetAddressesForPositionAsync(geoLocation);
             if (address != null)
             {
-                logger.Info(string.Join("\n", address));
+                logger.Info(string.Join("\n", address).Replace("\n", ";"));
             }
         }
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        void Handle_ValueChanged(object sender, Xamarin.Forms.ValueChangedEventArgs e)
         {
-            //logger.Info(App.Shared.GetLocation());
-            //if (App.Shared.GetLocation() != null)
-            //{
-            //    CurrentLocation.Text = $"{App.Shared.GetLocation()}";
-            //}
-            //else
-            //{
-            //    CurrentLocation.Text = "Unknown";
-            //}
+            var zoomLevel = e.NewValue; 
+            if (myMap.VisibleRegion != null)
+            {
+                myMap.MoveToRegion(MapSpan.FromCenterAndRadius(myMap.VisibleRegion.Center, Distance.FromMeters(System.Math.Pow(2, zoomLevel))));
+            }
         }
     }
 }

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Locus.Views;assembly=Locus" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" x:Class="Locus.LocusPage">
-    <StackLayout>
-        <Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Button Text="Click To Update Location" Clicked="Handle_Clicked" />
-        <Label Text="Unknown" x:Name="CurrentLocation" />
-        <maps:Map WidthRequest="320" HeightRequest="200"
-            x:Name="MyMap"
-            IsShowingUser="true" 
-            MapType="Hybrid"
-        />
-    </StackLayout>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <AbsoluteLayout>            
+            <maps:Map AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="myMap" IsShowingUser="true" MapType="Satellite" />
+            <Slider AbsoluteLayout.LayoutBounds="0.5,0,0.8,0.1" AbsoluteLayout.LayoutFlags="All" x:Name="mapSlider" ValueChanged="Handle_ValueChanged" Maximum="10"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
 </ContentPage>
