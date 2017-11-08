@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using Locus.Views;
+           
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Locus
 {
@@ -37,8 +38,7 @@ namespace Locus
         public App()
         {
             InitializeComponent();
-
-            MainPage = new LocusPage();
+            MainPage = new NavigationPage(new LocusPage());
         }
 
         protected override void OnStart()

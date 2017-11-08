@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:design="clr-namespace:Locus.Views.Models"
+    BindingContext="{x:Static design:LocationListViewModel.Preview}"
+	x:Class="Locus.Pages.ListPage">
+	<ContentPage.Content>
+         <ListView x:Name="LocationList"
+                ItemsSource="{Binding LocationList}"
+                ItemSelected="OnSelectedItem"
+                RowHeight="50"
+                Grid.Row="0"
+                Margin="5,5,5,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="50">
+                            <Grid Padding="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1.5*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0"
+                                    Grid.Row="0"
+                                    VerticalTextAlignment="Start"
+                                    Text="{Binding Name}" />
+                                <Label Grid.Column="0"
+                                    Grid.Row="1"
+                                    VerticalTextAlignment="End"
+                                    Text="{Binding CreatedAt}"
+                                    FontSize="Micro" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+	</ContentPage.Content>
+</ContentPage>

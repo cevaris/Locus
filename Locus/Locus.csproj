@@ -29,14 +29,15 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="LocusPage.xaml" />
+    <EmbeddedResource Include="Src\Pages\LocusPage.xaml" />
+    <EmbeddedResource Include="Src\Pages\ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="LocusPage.xaml.cs">
-      <DependentUpon>LocusPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Src\IShared.cs" />
@@ -46,11 +47,20 @@
     <Compile Include="Src\Geo\GeoLocator.cs" />
     <Compile Include="Src\Geo\GeoLocation.cs" />
     <Compile Include="Src\Geo\GeoTranslator.cs" />
+    <Compile Include="Src\Pages\LocusPage.xaml.cs">
+      <DependentUpon>LocusPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Views\Models\LocationListViewModel.cs" />
+    <Compile Include="Src\Pages\ListPage.xaml.cs">
+      <DependentUpon>ListPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Src\" />
     <Folder Include="Src\Views\" />
     <Folder Include="Src\Geo\" />
+    <Folder Include="Src\Pages\" />
+    <Folder Include="Src\Views\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

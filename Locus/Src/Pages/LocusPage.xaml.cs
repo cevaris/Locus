@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using Locus.Geo;
+using Locus.Pages;
+using Locus.Views.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
-namespace Locus
+namespace Locus.Views
 {
     public partial class LocusPage : ContentPage
     {
@@ -19,7 +21,7 @@ namespace Locus
             translator = GeoTranslator.Instance;
 
             NavigateToMyLocation();
-            mapSlider.Value = 0;
+            //mapSlider.Value = 0;
         }
 
         async void NavigateToMyLocation()
@@ -49,5 +51,29 @@ namespace Locus
                 myMap.MoveToRegion(MapSpan.FromCenterAndRadius(myMap.VisibleRegion.Center, Distance.FromMeters(meters)));
             }
         }
+
+        async void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            if (sender == buttonList)
+            {
+                logger.Info("clicked list page");
+                ListPage page = new ListPage();
+                page.BindingContext = LocationListViewModel.Preview;
+                await Navigation.PushAsync(page);
+            }
+
+            if (sender == buttonNew)
+            {
+                logger.Info("clicked new button");
+            }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            // hides the main parent navigation page header
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
+
     }
 }

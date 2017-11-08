@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Locus
 {
     public interface ILogger
@@ -7,6 +10,7 @@ namespace Locus
         void Error(object obj, Exception e);
         void Error(object obj, AggregateException e);
         void Info(object obj);
+        void Info(params object[] objs);
     }
 
     public class ConsoleLogger : ILogger
@@ -47,6 +51,12 @@ namespace Locus
             string now = DateTime.UtcNow.ToString("s", System.Globalization.CultureInfo.InvariantCulture);
             string scope = Scope == null ? "root" : Scope;
             return $"{now} - {level} - {scope}";
+        }
+
+        public void Info(params object[] objs)
+        {
+            List<string> strObjs = objs.Select(x => x.ToString()).ToList();
+            System.Diagnostics.Debug.WriteLine($"{prefix("INFO")} - {string.Join(" ", strObjs)}");   
         }
     }
 }
