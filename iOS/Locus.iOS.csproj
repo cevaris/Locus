@@ -134,7 +134,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="Src\Shared.cs" />
-    <Compile Include="Src\LocationUpdatedEventArgs.cs" />
     <Compile Include="Src\Views\AppDelegate.cs" />
   </ItemGroup>
   <ItemGroup>

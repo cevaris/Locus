@@ -19,7 +19,7 @@ namespace Locus
             translator = GeoTranslator.Instance;
 
             NavigateToMyLocation();
-            mapSlider.Value = 2;
+            mapSlider.Value = 0;
         }
 
         async void NavigateToMyLocation()
@@ -30,7 +30,7 @@ namespace Locus
             logger.Info($"current location {geoLocation}");
 
             Position currentPosition = new Position(geoLocation.Latitude, geoLocation.Longitude);
-            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(currentPosition, Distance.FromMeters(100)));
+            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(currentPosition, Distance.FromMeters(1)));
 
             IEnumerable<string> address = await translator.GetAddressesForPositionAsync(geoLocation);
             if (address != null)
@@ -41,10 +41,12 @@ namespace Locus
 
         void Handle_ValueChanged(object sender, Xamarin.Forms.ValueChangedEventArgs e)
         {
-            var zoomLevel = e.NewValue; 
+            double zoomLevel = e.NewValue;
             if (myMap.VisibleRegion != null)
             {
-                myMap.MoveToRegion(MapSpan.FromCenterAndRadius(myMap.VisibleRegion.Center, Distance.FromMeters(System.Math.Pow(2, zoomLevel))));
+                double meters = System.Math.Pow(3, zoomLevel);
+                logger.Info($"new slider value={zoomLevel} meters={meters}");
+                myMap.MoveToRegion(MapSpan.FromCenterAndRadius(myMap.VisibleRegion.Center, Distance.FromMeters(meters)));
             }
         }
     }

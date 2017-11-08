@@ -1,12 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Locus.Views;assembly=Locus" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" x:Class="Locus.LocusPage">
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Locus.Views;assembly=Locus"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+    x:Class="Locus.LocusPage">
     <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="0, 20, 0, 0" />
     </ContentPage.Padding>
     <ContentPage.Content>
-        <AbsoluteLayout>            
-            <maps:Map AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="myMap" IsShowingUser="true" MapType="Satellite" />
-            <Slider AbsoluteLayout.LayoutBounds="0.5,0,0.8,0.1" AbsoluteLayout.LayoutFlags="All" x:Name="mapSlider" ValueChanged="Handle_ValueChanged" Maximum="10"/>
+        <AbsoluteLayout>
+            <maps:Map
+                AbsoluteLayout.LayoutBounds="1,1,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                x:Name="myMap"
+                IsShowingUser="true"
+                MapType="Satellite" />
+            <Slider
+                AbsoluteLayout.LayoutBounds="0.5,0,0.8,0.1"
+                AbsoluteLayout.LayoutFlags="All"
+                x:Name="mapSlider"
+                ValueChanged="Handle_ValueChanged"
+                Maximum="10" />
+            <Button
+                x:Name="buttonList"
+                Text="☰"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="0.9,0.9,50,50"
+                FontSize="30"
+                WidthRequest="50"
+                HeightRequest="50"
+                BorderRadius="25"
+                BackgroundColor="White" />
+            <Button
+                x:Name="buttonNew"
+                Text="+"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="0.1,0.9,50,50"
+                FontSize="50"
+                WidthRequest="50"
+                HeightRequest="50"
+                BorderRadius="25"
+                BackgroundColor="White" />
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
