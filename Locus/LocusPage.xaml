@@ -31,11 +31,17 @@
                 VerticalOptions="Center"
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 AbsoluteLayout.LayoutBounds="0.9,0.9,50,50"
-                FontSize="30"
                 WidthRequest="50"
                 HeightRequest="50"
                 BorderRadius="25"
-                BackgroundColor="White" />
+                BackgroundColor="White">
+                <Button.FontSize>
+                    <OnPlatform
+                        x:TypeArguments="x:Double"
+                        iOS="30"
+                        Android="25" />
+                </Button.FontSize>
+            </Button>
             <Button
                 x:Name="buttonNew"
                 Text="+"
@@ -47,7 +53,14 @@
                 WidthRequest="50"
                 HeightRequest="50"
                 BorderRadius="25"
-                BackgroundColor="White" />
+                BackgroundColor="White">
+                <Button.FontSize>
+                    <OnPlatform
+                        x:TypeArguments="x:Double"
+                        iOS="30"
+                        Android="25" />
+                </Button.FontSize>
+            </Button>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
